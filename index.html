@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Para mi princesa ❤️</title>
+
+<style>
+body{
+    margin:0;
+    font-family:Arial, sans-serif;
+    background:linear-gradient(135deg,#ff9a9e,#fad0c4);
+    color:white;
+    text-align:center;
+    overflow:hidden;
+}
+
+.contenedor{
+    margin-top:100px;
+}
+
+h1{
+    font-size:3em;
+}
+
+button{
+    padding:15px 30px;
+    border:none;
+    border-radius:30px;
+    background:white;
+    color:#ff4d6d;
+    font-size:20px;
+    cursor:pointer;
+    transition:.3s;
+}
+
+button:hover{
+    transform:scale(1.1);
+}
+
+#mensaje{
+    display:none;
+    margin:30px;
+    font-size:24px;
+}
+
+.corazon{
+    position:fixed;
+    color:red;
+    animation:caer 6s linear infinite;
+}
+
+@keyframes caer{
+    0%{
+        transform:translateY(-100px);
+    }
+    100%{
+        transform:translateY(110vh);
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="contenedor">
+<h1>💖 Para la mejor novia del mundo 💖</h1>
+
+<p>Tengo algo muy importante que decirte...</p>
+
+<button onclick="mostrar()">Haz clic aquí ❤️</button>
+
+<div id="mensaje">
+<h2>Feliz Día de la Novia 💕</h2>
+
+<p>
+Desde que llegaste a mi vida todo es más bonito.
+Gracias por hacerme sonreír, por apoyarme y por estar conmigo.
+Eres una persona increíble y quiero que sepas que te amo muchísimo. ❤️
+</p>
+
+<p>Te elegiría una y mil veces más. 🌹</p>
+
+<h2>Te amo muchísimo 🫶❤️</h2>
+</div>
+
+</div>
+
+<script>
+function mostrar(){
+document.getElementById("mensaje").style.display="block";
+}
+
+function corazones(){
+const c=document.createElement("div");
+c.className="corazon";
+c.innerHTML="❤️";
+c.style.left=Math.random()*100+"vw";
+c.style.fontSize=(20+Math.random()*30)+"px";
+document.body.appendChild(c);
+
+setTimeout(()=>{
+c.remove();
+},6000);
+}
+
+setInterval(corazones,300);
+</script>
+
+</body>
+</html>
