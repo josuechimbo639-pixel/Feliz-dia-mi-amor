@@ -1,111 +1,92 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Para mi princesa ❤️</title>
 
+<!DOCTYPE html><html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Para Deba ❤️</title>
 <style>
-body{
-    margin:0;
-    font-family:Arial, sans-serif;
-    background:linear-gradient(135deg,#ff9a9e,#fad0c4);
-    color:white;
-    text-align:center;
-    overflow:hidden;
+html{scroll-behavior:smooth}*{box-sizing:border-box}
+body{margin:0;font-family:system-ui;background:#050816;color:#fff;overflow-x:hidden}
+#bg{position:fixed;inset:0;z-index:-2;background:radial-gradient(circle at top,#223,#050816 70%)}
+section{min-height:100vh;display:flex;flex-direction:column;justify-content:center;align-items:center;padding:40px;text-align:center}
+.glass{background:rgba(255,255,255,.08);backdrop-filter:blur(10px);padding:28px;border-radius:24px;max-width:900px}
+h1{font-size:3.2rem;color:#ffb7d0}h2{color:#ffd3e1}
+button,a{padding:14px 28px;border-radius:30px;border:none;background:#ff5b96;color:#fff;text-decoration:none;font-size:18px;cursor:pointer}
+.gallery{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:22px;width:min(950px,100%)}
+.photo{height:260px;border:2px dashed #ffb6d1;border-radius:18px;display:flex;align-items:center;justify-content:center;background:#ffffff10}
+.fade{opacity:0;transform:translateY(40px);transition:1s}.show{opacity:1;transform:none}
+.heart,.petal{position:fixed;top:-20px;pointer-events:none;animation:fall linear forwards}
+.heart{color:#ff76aa}.petal{color:#ffb6c1}
+@keyframes fall{to{transform:translateY(110vh) rotate(360deg);opacity:0}}
+#counter{font-size:1.4rem;margin:20px 0}
+
+.star{
+position:fixed;
+width:2px;
+height:2px;
+background:white;
+border-radius:50%;
+opacity:.8;
+animation:twinkle 2.5s ease-in-out infinite alternate;
+pointer-events:none;
+z-index:-1;
+}
+@keyframes twinkle{
+from{opacity:.2;transform:scale(.8)}
+to{opacity:1;transform:scale(1.4)}
 }
 
-.contenedor{
-    margin-top:100px;
-}
+</style></head><body><div id="bg"></div>
 
-h1{
-    font-size:3em;
-}
-
-button{
-    padding:15px 30px;
-    border:none;
-    border-radius:30px;
-    background:white;
-    color:#ff4d6d;
-    font-size:20px;
-    cursor:pointer;
-    transition:.3s;
-}
-
-button:hover{
-    transform:scale(1.1);
-}
-
-#mensaje{
-    display:none;
-    margin:30px;
-    font-size:24px;
-}
-
-.corazon{
-    position:fixed;
-    color:red;
-    animation:caer 6s linear infinite;
-}
-
-@keyframes caer{
-    0%{
-        transform:translateY(-100px);
-    }
-    100%{
-        transform:translateY(110vh);
-    }
-}
-</style>
-</head>
-
-<body>
-
-<div class="contenedor">
-<h1>💖 Para la mejor novia del mundo 💖</h1>
-
-<p>Tengo algo muy importante que decirte...</p>
-
-<button onclick="mostrar()">Haz clic aquí ❤️</button>
-
-<div id="mensaje">
-<h2>Feliz Día de la Novia 💕</h2>
-
-<p>
-Desde que llegaste a mi vida todo es más bonito.
-Gracias por hacerme sonreír, por apoyarme y por estar conmigo.
-Eres una persona increíble y quiero que sepas que te amo muchísimo. ❤️
-</p>
-
-<p>Te elegiría una y mil veces más. 🌹</p>
-
-<h2>Te amo muchísimo 🫶❤️</h2>
+<section class="fade">
+<div class="glass">
+<h1>Hola, Deba ❤️</h1>
+<p id="typing"></p>
+<button onclick="go('historia')">Empieza nuestra historia ✨</button>
 </div>
+</section>
 
+<section id="historia" class="fade"><div class="glass">
+<h2>Nuestra Historia</h2>
+<p>Desde el <b>5 de septiembre de 2025</b> mi vida cambió. Este regalo nació del tiempo, del cariño y del deseo de hacerte sonreír. Gracias por estar conmigo, por escucharme y por hacer mis días más felices.</p>
+</div></section>
+
+<section class="fade"><h2>📸 Nuestro álbum</h2>
+<div class="gallery">
+<div class="photo">foto1.jpg</div><div class="photo">foto2.jpg</div>
+<div class="photo">foto3.jpg</div><div class="photo">foto4.jpg</div>
 </div>
+<p>Aquí colocaremos nuestras fotos ❤️</p>
+</section>
+
+<section class="fade"><div class="glass">
+<h2>💌 Carta para ti</h2>
+<p>Deba, gracias por cada risa, cada abrazo y cada momento. Tal vez no sea perfecto, pero todos los días intento crecer y ser alguien que te haga sentir orgullosa. Hice esta página porque quería regalarte algo que pudieras volver a abrir dentro de muchos años y recordar que fue creado pensando únicamente en ti.</p>
+<p><b>Te elegiría una y mil veces más. Feliz Día de la Novia. ❤️</b></p>
+<a target="_blank" href="https://www.youtube.com/results?search_query=Lover+Is+A+Day+Cuco">🎵 Nuestra canción</a>
+</div></section>
+
+<section class="fade"><div class="glass">
+<h1>🌹 Feliz Día de la Novia 🌹</h1>
+<div id="counter"></div>
+<button onclick="celebrate()">❤️ Última sorpresa ❤️</button>
+</div></section>
 
 <script>
-function mostrar(){
-document.getElementById("mensaje").style.display="block";
+const text="Este no es un regalo comprado... es un pedacito de mi corazón convertido en una página web. Gracias por existir, Deba ❤️";
+let i=0;const t=document.getElementById('typing');(function w(){if(i<text.length){t.textContent+=text[i++];setTimeout(w,32)}})();
+function go(id){document.getElementById(id).scrollIntoView({behavior:'smooth'})}
+new IntersectionObserver(es=>es.forEach(e=>e.isIntersecting&&e.target.classList.add('show'))).observe(document.querySelectorAll?document.body:document.body);
+document.querySelectorAll('.fade').forEach(el=>new IntersectionObserver(es=>es.forEach(e=>e.isIntersecting&&el.classList.add('show'))).observe(el));
+const s=new Date('2025-09-05');const d=Math.floor((Date.now()-s)/86400000);counter.textContent="Nuestra historia lleva "+d+" días ❤️";
+function celebrate(){for(let i=0;i<220;i++){let e=document.createElement('div');e.className=Math.random()>.5?'heart':'petal';e.textContent=e.className=='heart'?'❤':'🌸';e.style.left=Math.random()*100+'vw';e.style.fontSize=(14+Math.random()*20)+'px';e.style.animationDuration=(3+Math.random()*4)+'s';document.body.appendChild(e);setTimeout(()=>e.remove(),7000);}}
+</script>
+<script>
+for(let i=0;i<180;i++){
+ const s=document.createElement('div');
+ s.className='star';
+ s.style.left=Math.random()*100+'vw';
+ s.style.top=Math.random()*100+'vh';
+ s.style.animationDelay=(Math.random()*2)+'s';
+ document.body.appendChild(s);
 }
-
-function corazones(){
-const c=document.createElement("div");
-c.className="corazon";
-c.innerHTML="❤️";
-c.style.left=Math.random()*100+"vw";
-c.style.fontSize=(20+Math.random()*30)+"px";
-document.body.appendChild(c);
-
-setTimeout(()=>{
-c.remove();
-},6000);
-}
-
-setInterval(corazones,300);
 </script>
 
-</body>
-</html>
+</body></html>
